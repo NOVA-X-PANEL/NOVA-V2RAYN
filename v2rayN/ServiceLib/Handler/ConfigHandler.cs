@@ -105,6 +105,15 @@ public static class ConfigHandler
         config.UiItem.MainColumnItem ??= [];
         config.UiItem.WindowSizeItem ??= [];
 
+        if (config.UiItem.CurrentTheme.IsNullOrEmpty())
+        {
+            config.UiItem.CurrentTheme = nameof(ETheme.Dark);
+        }
+        if (config.UiItem.ColorPrimaryName.IsNullOrEmpty())
+        {
+            config.UiItem.ColorPrimaryName = "cyan";
+        }
+
         if (config.UiItem.CurrentLanguage.IsNullOrEmpty())
         {
             config.UiItem.CurrentLanguage = Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName.Equals("zh", StringComparison.CurrentCultureIgnoreCase)

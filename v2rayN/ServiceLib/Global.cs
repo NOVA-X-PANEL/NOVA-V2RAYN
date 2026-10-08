@@ -2,13 +2,13 @@ namespace ServiceLib;
 
 public class Global
 {
-    public const string AppName = "v2rayN";
+    public const string AppName = "NOVA-V2RAYN";
     public const string GithubUrl = "https://github.com";
     public const string GithubApiUrl = "https://api.github.com/repos";
     public const string GeoUrl = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/{0}.dat";
     public const string SingboxRulesetUrl = @"https://raw.githubusercontent.com/2dust/sing-box-rules/rule-set-{0}/{1}.srs";
 
-    public const string PromotionUrl = @"aHR0cHM6Ly85LjIzNDQ1Ni54eXovYWJjLmh0bWw=";
+    public const string PromotionUrl = @"";
     public const string ConfigFileName = "guiNConfig.json";
     public const string CoreConfigFileName = "config.json";
     public const string CorePreConfigFileName = "configPre.json";
@@ -665,7 +665,7 @@ public class Global
         { ECoreType.overtls, "ShadowsocksR-Live/overtls" },
         { ECoreType.shadowquic, "spongebob888/shadowquic" },
         { ECoreType.mieru, "enfein/mieru" },
-        { ECoreType.v2rayN, "2dust/v2rayN" },
+        { ECoreType.v2rayN, "NOVA-X-PANEL/NOVA-V2RAYN" },
     };
 
     public static readonly List<string> OtherGeoUrls =

@@ -10,9 +10,9 @@
         <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
         <Nullable>annotations</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <Authors>2dust</Authors>
+        <Authors>NOVA-X-PANEL</Authors>
         <PackageLicenseExpression>GPL-3.0</PackageLicenseExpression>
-        <Copyright>Copyright © 2017-$([System.DateTime]::UtcNow.Year) $(Authors)</Copyright>
+        <Copyright>Copyright © 2024-$([System.DateTime]::UtcNow.Year) NOVA-X-PANEL</Copyright>
         <InvariantGlobalization>false</InvariantGlobalization>
     </PropertyGroup>
 

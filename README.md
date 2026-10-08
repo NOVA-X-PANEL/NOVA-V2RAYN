@@ -1,80 +1,70 @@
-# v2rayN
+# NOVA-V2RAYN
 
-### A GUI client for Windows, Linux and macOS. Support [Xray](https://github.com/XTLS/Xray-core) and [sing-box](https://github.com/SagerNet/sing-box) and [others](https://github.com/2dust/v2rayN/wiki/List-of-supported-cores)
+<div align="center">
+  <img src="v2rayN/v2rayN.Desktop/v2rayN.png" width="128" height="128" alt="NOVA-V2RAYN Logo" />
+  <h3>⚡️ NOVA-V2RAYN · Advanced GUI Client for Windows</h3>
+  <p>A modern, high-performance Xray & sing-box GUI client tailored with the bespoke <b>NOVA Cyberpunk Dark Theme</b>.</p>
 
-[![CodeFactor](https://www.codefactor.io/repository/github/2dust/v2rayn/badge)](https://www.codefactor.io/repository/github/2dust/v2rayn)
-[![Release](https://img.shields.io/github/v/release/2dust/v2rayN?logo=github&label=Release)](https://github.com/2dust/v2rayN/releases)
-[![Downloads](https://img.shields.io/github/downloads/2dust/v2rayN/latest/total?logo=github&label=Downloads)](https://github.com/2dust/v2rayN/releases)
-[![Telegram](https://img.shields.io/badge/Telegram-Chat-26A5E4?logo=telegram)](https://t.me/v2rayn)
- 
-[![Windows](https://img.shields.io/badge/Windows-supported-0078D6?logo=windows)](https://github.com/2dust/v2rayN) 
-[![Linux](https://img.shields.io/badge/Linux-supported-FCC624?logo=linux&logoColor=000)](https://github.com/2dust/v2rayN) 
-[![macOS](https://img.shields.io/badge/macOS-supported-000000?logo=apple)](https://github.com/2dust/v2rayN) 
-[![GPG Signed](https://img.shields.io/badge/GPG-signed-4B32C3?logo=gnuprivacyguard)](https://github.com/2dust/v2rayN)
-
+  [![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-00F0FF?logo=windows&logoColor=black)](#)
+  [![Architecture](https://img.shields.io/badge/Arch-x64%20%7C%20arm64-8B5CF6)](#)
+  [![Xray Core](https://img.shields.io/badge/Xray--core-Latest-00E676)](#)
+  [![Theme](https://img.shields.io/badge/Theme-NOVA%20Cyberpunk%20OLED-FF0055)](#)
+</div>
 
 ---
 
-## Download / 下载
+## 🇮🇷 معرفی فارسی (Persian Overview)
 
-Download the latest release here:
+**NOVA-V2RAYN** نسخه اختصاصی و بهینه‌سازی‌شده کلاینت قدرتمند ویندوز برای مدیریت اتصالات و کانفیگ‌های Xray و Sing-box است که با هویت بصری مدرن و نئون سایبرپانک **NOVA-X-PANEL** شخصی‌سازی شده است.
 
-在这里下载最新版本：
-
-[https://github.com/2dust/v2rayN/releases](https://github.com/2dust/v2rayN/releases)
-
-
-> [!TIP]
-> v2rayN is the desktop version. For the mobile version, please visit the v2rayNG \
-> v2rayN 是电脑版，手机版请访问 v2rayNG
->
-> https://github.com/2dust/v2rayNG
+### ویژگی‌های کلیدی:
+* 🌌 **طراحی بصری نئون سایبرپانک (Cyberpunk OLED):** پس‌زمینه دارک اختصاصی با های‌لایت‌های نئونی فیروزه‌ای (`#00F0FF`) و بنفش، جایگزین تم متریال ساده.
+* ⚡️ **رنگ‌بندی هوشمند پینگ و تأخیر:** نمایش سبز زمردی (`#00E676`) برای سرورهای سریع، فیروزه‌ای برای پینگ متوسط، کهربایی برای پینگ بالا و قرمز نئونی برای تایم‌اوت‌ها.
+* 🛡 **پشتیبانی کامل از پروتکل‌های پیشرفته:** VLESS (Reality / XTLS-Vision), VMess, Trojan, Shadowsocks, Hysteria 2, TUIC v5.
+* 🔒 **پشتیبانی بومی از ECH و Clean IP:** عبور پایدار از فیلترینگ و اختلالات اینترنت.
+* ⚙️ **سازگار با TUN Mode:** تونل‌سازی کامل ترافیک سیستم‌عامل ویندوز با یک کلیک.
+* 🚀 **بیلد خودکار و مستقل:** مجهز به اکشن‌های GitHub جهت انتشار آسان نسخه‌های جدید.
 
 ---
 
-## Documentation / 使用文档
+## 🇬🇧 Features & Highlights
 
-Read the Wiki for usage guides and configuration details.
-
-请阅读 Wiki 获取使用说明和配置教程。
-
-[https://github.com/2dust/v2rayN/wiki](https://github.com/2dust/v2rayN/wiki)
-
----
-
-## Supported Platforms / 支持平台
-
-| Platform / 平台 | x64 | x86 | arm64 | riscv64 | loong64 |
-| --- | --- | --- | --- | --- | --- |
-| Windows | ✅ | ✅ | ✅ | - | - |
-| Linux | ✅ | - | ✅ | ✅ | ✅ |
-| macOS | ✅ | - | ✅ | - | - |
-
-Minimum OS requirements: [Release files introduction](https://github.com/2dust/v2rayN/wiki/Release-files-introduction) / 最低系统要求：[发布文件介绍](https://github.com/2dust/v2rayN/wiki/Release-files-introduction)
+* **Deep Obsidian & Neon Aesthetic:** Engineered with high-contrast OLED dark backgrounds, frosted glass card styling, and electric cyan accents.
+* **Smart Latency Telemetry:** Instant color-coded ping indicators (<300ms Emerald, <600ms Cyan, <1000ms Amber, Red Timeout).
+* **Multi-Core Power:** Native integration with both **Xray-core** and **sing-box**.
+* **Zero Adware / Clean Build:** All external promotional URLs and tracking links completely stripped.
+* **Seamless Updates:** Integrated updater directly linked to the `NOVA-X-PANEL/NOVA-V2RAYN` GitHub release channel.
 
 ---
 
-## GPG Verification / GPG 签名校验
+## 📥 دانلود و نصب (Download)
 
-Release files are signed with GPG to verify authenticity and integrity, helping prevent mirror, ISP, or CDN hijacking.
+فایل‌های آماده برای اجرا را از بخش **[Releases](https://github.com/NOVA-X-PANEL/NOVA-V2RAYN/releases)** دانلود نمایید:
 
-发布文件已使用 GPG 签名，可用于校验文件真实性与完整性，预防镜像站、运营商或 CDN 劫持。
+1. فایل زیپ `NOVA-V2RAYN-windows-64.zip` را دانلود و استخراج (Extract) کنید.
+2. برنامه `v2rayN.exe` را اجرا کنید.
+3. لینک اشتراک یا کانفیگ‌های خود را اضافه کرده و متصل شوید!
 
-### Fingerprint / 公钥指纹
+---
 
-```text
-7694 5E9F 3E9A 168F 8070 F195 805D 661C
-134D FAF6 8903 C199 463C 31E5 AE90 3AE0
+## 🛠 توسعه و کامپایل دستی (Build from Source)
+
+نیازمندی‌ها:
+* [.NET 10.0 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) یا جدیدتر
+* ویندوز ۱۰ نسخه ۱۹۰۴۱ یا بالاتر
+
+```bash
+# کلون ریپازیتوری
+git clone https://github.com/NOVA-X-PANEL/NOVA-V2RAYN.git
+cd NOVA-V2RAYN/v2rayN
+
+# بیلد نسخه ویندوز x64
+dotnet publish ./v2rayN/v2rayN.csproj -c Release -r win-x64 -p:SelfContained=true -p:EnableWindowsTargeting=true -o ./dist/win-x64
 ```
 
 ---
 
-## Community / 社区
+## 📜 لایسنس (License)
 
-Telegram Group / Telegram 群组：
-
-[https://t.me/v2rayN](https://t.me/v2rayN)
-
-Telegram Channel / Telegram 频道：
-
-[https://t.me/github_2dust](https://t.me/github_2dust)
+پروژه تحت لایسنس عمومی **GNU General Public License v3.0 (GPL-3.0)** منتشر شده است.
+مبتنی بر سورس پایه پروژه متن‌باز [2dust/v2rayN](https://github.com/2dust/v2rayN).
