@@ -73,42 +73,53 @@
                 AutomationProperties.Name="{x:Static resx:ResUI.TbAutoScrollToEnd}"
                 IsChecked="True" />
         </WrapPanel>
-        <TextBox
-            Name="txtMsg"
-            VerticalAlignment="Stretch"
-            AcceptsReturn="True"
-            BorderThickness="0"
-            FontSize="{DynamicResource StdFontSize-1}"
-            HorizontalScrollBarVisibility="Auto"
-            IsReadOnly="True"
-            IsReadOnlyCaretVisible="True"
-            IsUndoEnabled="False"
-            TextAlignment="Left"
-            TextWrapping="Wrap"
-            UndoLimit="0"
-            VerticalScrollBarVisibility="Visible">
-            <TextBox.ContextMenu>
-                <ContextMenu Style="{StaticResource DefContextMenu}">
-                    <MenuItem
-                        x:Name="menuMsgViewSelectAll"
-                        Height="{StaticResource MenuItemHeight}"
-                        Header="{x:Static resx:ResUI.menuMsgViewSelectAll}"
-                        InputGestureText="Ctrl+A" />
-                    <MenuItem
-                        x:Name="menuMsgViewCopy"
-                        Height="{StaticResource MenuItemHeight}"
-                        Header="{x:Static resx:ResUI.menuMsgViewCopy}"
-                        InputGestureText="Ctrl+C" />
-                    <MenuItem
-                        x:Name="menuMsgViewCopyAll"
-                        Height="{StaticResource MenuItemHeight}"
-                        Header="{x:Static resx:ResUI.menuMsgViewCopyAll}" />
-                    <MenuItem
-                        x:Name="menuMsgViewClear"
-                        Height="{StaticResource MenuItemHeight}"
-                        Header="{x:Static resx:ResUI.menuMsgViewClear}" />
-                </ContextMenu>
-            </TextBox.ContextMenu>
-        </TextBox>
+        <Border
+            Margin="2"
+            Background="#04060B"
+            BorderBrush="#162235"
+            BorderThickness="1"
+            CornerRadius="6">
+            <TextBox
+                Name="txtMsg"
+                VerticalAlignment="Stretch"
+                AcceptsReturn="True"
+                Background="#04060B"
+                Foreground="#38BDF8"
+                FontFamily="Consolas, Cascadia Code, Courier New, monospace"
+                Padding="8,6"
+                BorderThickness="0"
+                FontSize="{DynamicResource StdFontSize-1}"
+                HorizontalScrollBarVisibility="Auto"
+                IsReadOnly="True"
+                IsReadOnlyCaretVisible="True"
+                IsUndoEnabled="False"
+                TextAlignment="Left"
+                TextWrapping="Wrap"
+                UndoLimit="0"
+                VerticalScrollBarVisibility="Visible">
+                <TextBox.ContextMenu>
+                    <ContextMenu Style="{StaticResource DefContextMenu}">
+                        <MenuItem
+                            x:Name="menuMsgViewSelectAll"
+                            Height="{StaticResource MenuItemHeight}"
+                            Header="{x:Static resx:ResUI.menuMsgViewSelectAll}"
+                            InputGestureText="Ctrl+A" />
+                        <MenuItem
+                            x:Name="menuMsgViewCopy"
+                            Height="{StaticResource MenuItemHeight}"
+                            Header="{x:Static resx:ResUI.menuMsgViewCopy}"
+                            InputGestureText="Ctrl+C" />
+                        <MenuItem
+                            x:Name="menuMsgViewCopyAll"
+                            Height="{StaticResource MenuItemHeight}"
+                            Header="{x:Static resx:ResUI.menuMsgViewCopyAll}" />
+                        <MenuItem
+                            x:Name="menuMsgViewClear"
+                            Height="{StaticResource MenuItemHeight}"
+                            Header="{x:Static resx:ResUI.menuMsgViewClear}" />
+                    </ContextMenu>
+                </TextBox.ContextMenu>
+            </TextBox>
+        </Border>
     </DockPanel>
 </reactiveui:ReactiveUserControl>

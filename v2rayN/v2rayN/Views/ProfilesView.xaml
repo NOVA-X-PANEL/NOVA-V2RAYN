@@ -100,18 +100,18 @@
             </WrapPanel>
             <DataGrid
                 x:Name="lstProfiles"
-                materialDesign:DataGridAssist.CellPadding="2,2"
+                materialDesign:DataGridAssist.CellPadding="8,6"
                 AutoGenerateColumns="False"
-                BorderThickness="1"
+                BorderThickness="0"
                 CanUserAddRows="False"
                 CanUserResizeRows="False"
                 CanUserSortColumns="False"
                 EnableRowVirtualization="True"
                 Focusable="True"
-                GridLinesVisibility="All"
-                HeadersVisibility="All"
+                GridLinesVisibility="None"
+                HeadersVisibility="Column"
                 IsReadOnly="True"
-                RowHeaderWidth="40"
+                RowHeaderWidth="0"
                 Style="{StaticResource DefDataGrid}">
                 <DataGrid.InputBindings>
                     <KeyBinding Command="ApplicationCommands.NotACommand" Gesture="Ctrl+C" />
@@ -264,17 +264,39 @@
                 <DataGrid.Resources>
                     <Style BasedOn="{StaticResource MaterialDesignDataGridRow}" TargetType="DataGridRow">
                         <EventSetter Event="MouseDoubleClick" Handler="LstProfiles_MouseDoubleClick" />
+                        <Setter Property="Margin" Value="0,1,0,1" />
+                        <Setter Property="MinHeight" Value="36" />
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#1A2D48" />
+                                <Setter Property="Foreground" Value="#00F0FF" />
+                                <Setter Property="BorderBrush" Value="#00F0FF" />
+                                <Setter Property="BorderThickness" Value="1.5" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#131C2D" />
+                            </Trigger>
+                        </Style.Triggers>
                     </Style>
                     <Style BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}" TargetType="DataGridColumnHeader">
                         <EventSetter Event="Click" Handler="LstProfiles_ColumnHeader_Click" />
+                        <Setter Property="Background" Value="#090E18" />
+                        <Setter Property="Foreground" Value="#00F0FF" />
+                        <Setter Property="FontWeight" Value="Bold" />
+                        <Setter Property="Height" Value="34" />
+                        <Setter Property="BorderBrush" Value="#1E293B" />
+                        <Setter Property="BorderThickness" Value="0,0,0,1" />
                     </Style>
 
                     <Style BasedOn="{StaticResource MaterialDesignDataGridCell}" TargetType="DataGridCell">
+                        <Setter Property="BorderThickness" Value="0" />
+                        <Setter Property="Padding" Value="8,6" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding IsActive}" Value="True">
-                                <Setter Property="Background" Value="{DynamicResource MaterialDesign.Brush.Primary.Light}" />
-                                <Setter Property="Foreground" Value="Black" />
-                                <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesign.Brush.Primary.Light}" />
+                                <Setter Property="Background" Value="#14263D" />
+                                <Setter Property="Foreground" Value="#00F0FF" />
+                                <Setter Property="FontWeight" Value="SemiBold" />
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>

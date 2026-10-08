@@ -168,12 +168,14 @@
                 BasedOn="{StaticResource MaterialDesignDataGrid}"
                 TargetType="{x:Type DataGrid}">
                 <Setter Property="FontSize" Value="{DynamicResource StdFontSize}" />
-                <Setter Property="Background" Value="#0B0E14" />
-                <Setter Property="RowBackground" Value="#0F1420" />
-                <Setter Property="AlternatingRowBackground" Value="#121824" />
-                <Setter Property="BorderBrush" Value="#1E293B" />
-                <Setter Property="HorizontalGridLinesBrush" Value="#1E293B" />
-                <Setter Property="VerticalGridLinesBrush" Value="#1E293B" />
+                <Setter Property="Background" Value="#080C14" />
+                <Setter Property="RowBackground" Value="#0C121E" />
+                <Setter Property="AlternatingRowBackground" Value="#101726" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="GridLinesVisibility" Value="None" />
+                <Setter Property="HorizontalGridLinesBrush" Value="Transparent" />
+                <Setter Property="VerticalGridLinesBrush" Value="Transparent" />
             </Style>
             <Style
                 x:Key="DefTextBox"
@@ -198,7 +200,15 @@
                 x:Key="MyChipListBoxItem"
                 BasedOn="{StaticResource MaterialDesignChoiceChipPrimaryOutlineListBoxItem}"
                 TargetType="{x:Type ListBoxItem}">
-                <Setter Property="Margin" Value="-2,0" />
+                <Setter Property="Margin" Value="2,0" />
+                <Setter Property="BorderBrush" Value="#00F0FF" />
+                <Setter Property="Foreground" Value="#00F0FF" />
+                <Setter Property="Background" Value="#0E1726" />
+            </Style>
+            <Style
+                BasedOn="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                TargetType="{x:Type Button}">
+                <Setter Property="Background" Value="#121A2C" />
                 <Setter Property="BorderBrush" Value="#00F0FF" />
                 <Setter Property="Foreground" Value="#00F0FF" />
             </Style>

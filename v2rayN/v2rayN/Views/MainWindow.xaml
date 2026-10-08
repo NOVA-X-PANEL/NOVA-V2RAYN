@@ -77,7 +77,7 @@
                                 Margin="0,0,8,0"
                                 VerticalAlignment="Center">
                                 <TextBlock
-                                    Text="v7.25.6 • CYBER EDITION"
+                                    Text="v7.25.8 • CYBER EDITION"
                                     Foreground="#00F0FF"
                                     FontSize="10"
                                     FontWeight="Bold" />
@@ -151,12 +151,13 @@
                     </DockPanel>
                 </Border>
 
-                <ToolBarTray DockPanel.Dock="Top">
+                <ToolBarTray DockPanel.Dock="Top" Background="#080C14">
                     <ToolBar
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         ClipToBounds="True"
                         KeyboardNavigation.TabNavigation="Continue"
+                        Background="#080C14"
                         Style="{StaticResource MaterialDesignToolBar}">
                         <Menu Margin="0,1" Style="{StaticResource ToolbarMenu}">
                             <MenuItem Padding="{StaticResource MarginLeftRight8}" AutomationProperties.Name="{x:Static resx:ResUI.menuServers}">
@@ -467,8 +468,8 @@
                     </Grid>
                     <Grid x:Name="gridMain1" Visibility="Collapsed">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="1*" />
-                            <RowDefinition Height="10" />
+                            <RowDefinition Height="2.2*" />
+                            <RowDefinition Height="6" />
                             <RowDefinition Height="1*" />
                         </Grid.RowDefinitions>
                         <ContentControl x:Name="tabProfiles1" Grid.Row="0" />
