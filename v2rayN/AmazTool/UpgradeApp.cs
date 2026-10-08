@@ -59,12 +59,24 @@ internal class UpgradeApp
                     Console.WriteLine(entry.FullName);
 
                     var lst = entry.FullName.Split(splitKey);
+                    string fullName;
                     if (lst.Length == 1)
+                    {
+                        fullName = entry.FullName;
+                    }
+                    else if (lst[0].StartsWith("v2rayN", StringComparison.OrdinalIgnoreCase) || lst[0].StartsWith("NOVA", StringComparison.OrdinalIgnoreCase))
+                    {
+                        fullName = string.Join(splitKey, lst[1..lst.Length]);
+                    }
+                    else
+                    {
+                        fullName = entry.FullName;
+                    }
+
+                    if (string.IsNullOrEmpty(fullName))
                     {
                         continue;
                     }
-
-                    var fullName = string.Join(splitKey, lst[1..lst.Length]);
 
                     if (string.Equals(Utils.GetExePath(), Utils.GetPath(fullName), StringComparison.OrdinalIgnoreCase))
                     {
@@ -73,8 +85,8 @@ internal class UpgradeApp
 
                     var entryOutputPath = Utils.GetPath(fullName);
                     Directory.CreateDirectory(Path.GetDirectoryName(entryOutputPath)!);
-                    //In the bin folder, if the file already exists, it will be skipped
-                    if (fullName.StartsWith("bin") && File.Exists(entryOutputPath))
+                    //In the bin folder, if the file already exists with same size, it will be skipped
+                    if (fullName.StartsWith("bin") && File.Exists(entryOutputPath) && new FileInfo(entryOutputPath).Length == entry.Length)
                     {
                         continue;
                     }

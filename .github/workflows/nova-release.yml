@@ -4,13 +4,13 @@ on:
   workflow_dispatch:
     inputs:
       release_tag:
-        description: 'Release Tag (e.g. v7.25.5-nova)'
+        description: 'Release Tag (e.g. 7.25.6)'
         required: false
-        default: 'v7.25.5'
+        default: '7.25.6'
         type: string
   push:
     tags:
-      - 'v*'
+      - '*'
 
 permissions:
   contents: write
@@ -45,31 +45,40 @@ jobs:
         shell: bash
         working-directory: ./v2rayN
         run: |
-          dotnet publish ./v2rayN/v2rayN.csproj -c Release -r ${{ matrix.rid }} -p:SelfContained=true -p:EnableWindowsTargeting=true -o ../dist/NOVA-V2RAYN-${{ matrix.arch }}
-          dotnet publish ./AmazTool/AmazTool.csproj -c Release -r ${{ matrix.rid }} -p:SelfContained=true -p:PublishTrimmed=true -p:EnableWindowsTargeting=true -o ../dist/NOVA-V2RAYN-${{ matrix.arch }}
+          dotnet publish ./v2rayN/v2rayN.csproj -c Release -r ${{ matrix.rid }} -p:SelfContained=true -p:EnableWindowsTargeting=true -o ../dist/v2rayN-windows-${{ matrix.target_bin }}
+          dotnet publish ./AmazTool/AmazTool.csproj -c Release -r ${{ matrix.rid }} -p:SelfContained=true -p:PublishTrimmed=true -p:EnableWindowsTargeting=true -o ../dist/v2rayN-windows-${{ matrix.target_bin }}
 
       - name: Download & Merge Core Binaries
         shell: bash
         run: |
           mkdir -p temp_core
           curl -sSL "https://github.com/2dust/v2rayN-core-bin/raw/refs/heads/master/v2rayN-windows-${{ matrix.target_bin }}.zip" -o temp_core/cores.zip
-          7z x temp_core/cores.zip -o./dist/NOVA-V2RAYN-${{ matrix.arch }} -y || true
+          # cores.zip contains top folder 'v2rayN-windows-${{ matrix.target_bin }}' with 'bin/' inside
+          # Extracting into ./dist places 'bin/' right next to v2rayN.exe in './dist/v2rayN-windows-${{ matrix.target_bin }}'
+          7z x temp_core/cores.zip -o./dist -y
 
-      - name: Package Release Zip
+          echo "Listing dist directory contents:"
+          ls -la ./dist/v2rayN-windows-${{ matrix.target_bin }}
+          echo "Verifying bin directory contents:"
+          ls -la ./dist/v2rayN-windows-${{ matrix.target_bin }}/bin
+          ls -la ./dist/v2rayN-windows-${{ matrix.target_bin }}/bin/xray || true
+
+      - name: Package Release Zips
         shell: bash
         run: |
-          TAG="${{ github.ref_name }}"
-          if [[ "$TAG" == refs/heads/* ]] || [[ -z "$TAG" ]]; then
-            TAG="${{ inputs.release_tag || 'v7.25.5' }}"
-          fi
           cd dist
-          7z a -tzip "../NOVA-V2RAYN-windows-${{ matrix.arch }}.zip" "./NOVA-V2RAYN-${{ matrix.arch }}/*" -mx9
+          # Package standard v2rayN archive structure (root folder is v2rayN-windows-${{ matrix.target_bin }})
+          # This allows AmazTool and standard extractors to update without losing core paths
+          7z a -tzip "../v2rayN-windows-${{ matrix.target_bin }}.zip" "v2rayN-windows-${{ matrix.target_bin }}" -mx9
+          cp "../v2rayN-windows-${{ matrix.target_bin }}.zip" "../NOVA-V2RAYN-windows-${{ matrix.arch }}.zip"
 
       - name: Upload Release Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: NOVA-V2RAYN-windows-${{ matrix.arch }}
-          path: NOVA-V2RAYN-windows-${{ matrix.arch }}.zip
+          name: windows-${{ matrix.arch }}
+          path: |
+            v2rayN-windows-${{ matrix.target_bin }}.zip
+            NOVA-V2RAYN-windows-${{ matrix.arch }}.zip
 
   publish-release:
     name: Publish GitHub Release
@@ -85,23 +94,24 @@ jobs:
       - name: Create or Update GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref_type == 'tag' && github.ref_name || inputs.release_tag || 'v7.25.5' }}
-          name: NOVA-V2RAYN ${{ github.ref_type == 'tag' && github.ref_name || inputs.release_tag || 'v7.25.5' }}
+          tag_name: ${{ github.ref_type == 'tag' && github.ref_name || inputs.release_tag || '7.25.6' }}
+          name: NOVA-V2RAYN ${{ github.ref_type == 'tag' && github.ref_name || inputs.release_tag || '7.25.6' }}
           body: |
-            ## ⚡️ NOVA-V2RAYN Windows Release
+            ## ⚡️ NOVA-V2RAYN Windows Release 7.25.6
 
             کلاینت اختصاصی ویندوز با هویت بصری **NOVA Cyberpunk Dark OLED**.
 
             ### تغییرات این نسخه:
+            - 🔧 **رفع مشکل عدم پینگ کانفیگ‌ها:** تصحیح چیدمان هسته‌های Xray-core و Sing-box در پوشه bin کلاینت
             - 🌌 تم اختصاصی دارک سایبرپانک و نئون اولد (`#0B0E14` و `#00F0FF`)
             - ⚡️ سیستم رنگ‌بندی جدید و مدرن پینگ سرورها (سبز زمردی، فیروزه‌ای، کهربایی، قرمز)
-            - 🛡 پشتیبانی کامل از Xray-core و sing-box با تنظیمات تونل، ECH و Clean IP
+            - 🔄 سازگاری کامل با سیستم آپدیت درون‌برنامه‌ای (Check Update / AmazTool)
             - 🚀 بدون تبلیغات و با اتصال مستقیم به کانال به‌روزرسانی NOVA
 
             ---
             ### فایل‌های اجرایی:
-            - `NOVA-V2RAYN-windows-x64.zip` (مناسب تمام سیستم‌های ویندوز ۶۴ بیتی معمولی)
-            - `NOVA-V2RAYN-windows-arm64.zip` (مناسب سیستم‌های مبتنی بر پردازنده ARM)
+            - `v2rayN-windows-64.zip` / `NOVA-V2RAYN-windows-x64.zip` (سیستم‌های ۶۴ بیتی معمولی ویندوز)
+            - `v2rayN-windows-arm64.zip` / `NOVA-V2RAYN-windows-arm64.zip` (سیستم‌های مبتنی بر پردازنده ARM)
           files: release_assets/*.zip
           draft: false
           prerelease: false
