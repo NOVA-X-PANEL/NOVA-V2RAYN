@@ -15,55 +15,132 @@
     Style="{StaticResource ViewGlobal}"
     mc:Ignorable="d">
     <Grid>
-        <materialDesign:ColorZone
-            Height="auto"
-            Margin="{StaticResource Margin4}"
-            Mode="Standard">
-            <DockPanel>
+        <Border
+            Background="#060912"
+            BorderBrush="#162235"
+            BorderThickness="0,1,0,0"
+            Padding="12,6">
+            <DockPanel LastChildFill="True">
                 <StackPanel
                     Margin="{StaticResource MarginLeftRight8}"
                     VerticalAlignment="Center"
-                    DockPanel.Dock="Right">
-                    <TextBlock
-                        x:Name="txtSpeedProxyDisplay"
-                        HorizontalAlignment="Right"
-                        Style="{StaticResource StatusbarItem}" />
-                    <Border Margin="1" />
-                    <TextBlock
-                        x:Name="txtSpeedDirectDisplay"
-                        HorizontalAlignment="Right"
-                        Style="{StaticResource StatusbarItem}" />
+                    DockPanel.Dock="Right"
+                    Orientation="Horizontal">
+                    <Border
+                        Background="#0D1527"
+                        BorderBrush="#1E293B"
+                        BorderThickness="1"
+                        CornerRadius="6"
+                        Padding="8,3"
+                        Margin="0,0,6,0">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Kind="Download"
+                                Width="14"
+                                Height="14"
+                                Foreground="#00F0FF"
+                                VerticalAlignment="Center"
+                                Margin="0,0,4,0" />
+                            <TextBlock
+                                x:Name="txtSpeedProxyDisplay"
+                                Foreground="#00F0FF"
+                                FontWeight="Bold"
+                                FontSize="11"
+                                FontFamily="Consolas, Fira Code, monospace"
+                                VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Border>
+                    <Border
+                        Background="#0D1527"
+                        BorderBrush="#1E293B"
+                        BorderThickness="1"
+                        CornerRadius="6"
+                        Padding="8,3">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Kind="Upload"
+                                Width="14"
+                                Height="14"
+                                Foreground="#A78BFA"
+                                VerticalAlignment="Center"
+                                Margin="0,0,4,0" />
+                            <TextBlock
+                                x:Name="txtSpeedDirectDisplay"
+                                Foreground="#A78BFA"
+                                FontWeight="Bold"
+                                FontSize="11"
+                                FontFamily="Consolas, Fira Code, monospace"
+                                VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Border>
                 </StackPanel>
 
                 <StackPanel
-                    Width="Auto"
-                    Margin="{StaticResource MarginLeftRight8}"
-                    VerticalAlignment="Center"
-                    DockPanel.Dock="Left">
-                    <TextBlock x:Name="txtInboundDisplay" Style="{StaticResource StatusbarItem}" />
-                    <Border Margin="1" />
-                    <TextBlock x:Name="txtInboundLanDisplay" Style="{StaticResource StatusbarItem}" />
-                </StackPanel>
-
-                <StackPanel
-                    x:Name="spEnableTun"
                     Width="Auto"
                     Margin="{StaticResource MarginLeftRight8}"
                     VerticalAlignment="Center"
                     DockPanel.Dock="Left"
                     Orientation="Horizontal">
-                    <TextBlock
-                        Margin="{StaticResource MarginLeftRight8}"
-                        VerticalAlignment="Center"
-                        Style="{StaticResource StatusbarItem}"
-                        Text="{x:Static resx:ResUI.TbEnableTunAs}" />
-                    <ToggleButton
-                        x:Name="togEnableTun"
-                        Margin="{StaticResource Margin4}"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        AutomationProperties.Name="{x:Static resx:ResUI.TbEnableTunAs}" />
+                    <Border
+                        Background="#0A0E17"
+                        BorderBrush="#162235"
+                        BorderThickness="1"
+                        CornerRadius="6"
+                        Padding="8,3"
+                        Margin="0,0,6,0">
+                        <TextBlock
+                            x:Name="txtInboundDisplay"
+                            Foreground="#94A3B8"
+                            FontSize="11"
+                            FontFamily="Consolas, Fira Code, monospace" />
+                    </Border>
+                    <Border
+                        Background="#0A0E17"
+                        BorderBrush="#162235"
+                        BorderThickness="1"
+                        CornerRadius="6"
+                        Padding="8,3">
+                        <TextBlock
+                            x:Name="txtInboundLanDisplay"
+                            Foreground="#64748B"
+                            FontSize="11"
+                            FontFamily="Consolas, Fira Code, monospace" />
+                    </Border>
                 </StackPanel>
+
+                <Border
+                    x:Name="spEnableTun"
+                    Background="#0D1A2D"
+                    BorderBrush="#00F0FF"
+                    BorderThickness="1"
+                    CornerRadius="6"
+                    Padding="8,3"
+                    Margin="{StaticResource MarginLeftRight8}"
+                    VerticalAlignment="Center"
+                    DockPanel.Dock="Left">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <materialDesign:PackIcon
+                            Kind="ShieldLockOutline"
+                            Width="16"
+                            Height="16"
+                            Foreground="#00F0FF"
+                            VerticalAlignment="Center"
+                            Margin="0,0,6,0" />
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            Foreground="#E2E8F0"
+                            FontWeight="SemiBold"
+                            FontSize="11"
+                            Text="{x:Static resx:ResUI.TbEnableTunAs}"
+                            Margin="0,0,6,0" />
+                        <ToggleButton
+                            x:Name="togEnableTun"
+                            Margin="0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            AutomationProperties.Name="{x:Static resx:ResUI.TbEnableTunAs}" />
+                    </StackPanel>
+                </Border>
 
                 <StackPanel
                     Margin="{StaticResource MarginLeftRight8}"
@@ -72,8 +149,9 @@
                     Orientation="Horizontal">
                     <ComboBox
                         x:Name="cmbSystemProxy"
-                        Width="160"
-                        Margin="{StaticResource MarginLeftRight8}"
+                        Width="140"
+                        Margin="0,0,8,0"
+                        Foreground="#00F0FF"
                         materialDesign:HintAssist.Hint="{x:Static resx:ResUI.menuSystemproxy}"
                         AutomationProperties.Name="{x:Static resx:ResUI.menuSystemproxy}"
                         FontSize="{DynamicResource StdFontSize}"
@@ -86,8 +164,8 @@
 
                     <ComboBox
                         x:Name="cmbRoutings2"
-                        Width="160"
-                        Margin="{StaticResource MarginLeftRight8}"
+                        Width="140"
+                        Foreground="#A78BFA"
                         materialDesign:HintAssist.Hint="{x:Static resx:ResUI.menuRouting}"
                         AutomationProperties.Name="{x:Static resx:ResUI.menuRouting}"
                         DisplayMemberPath="Remarks"
@@ -95,13 +173,29 @@
                         Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
                 </StackPanel>
 
-                <StackPanel Margin="{StaticResource MarginLeftRight8}" VerticalAlignment="Center">
-                    <TextBlock x:Name="txtRunningServerDisplay" Style="{StaticResource StatusbarItem}" />
-                    <Border Margin="1" />
-                    <TextBlock x:Name="txtRunningInfoDisplay" Style="{StaticResource StatusbarItem}" />
+                <StackPanel Margin="{StaticResource MarginLeftRight8}" VerticalAlignment="Center" Orientation="Horizontal">
+                    <materialDesign:PackIcon
+                        Kind="RadioboxMarked"
+                        Width="15"
+                        Height="15"
+                        Foreground="#00E676"
+                        VerticalAlignment="Center"
+                        Margin="0,0,6,0" />
+                    <TextBlock
+                        x:Name="txtRunningServerDisplay"
+                        Foreground="#F8FAFC"
+                        FontWeight="Bold"
+                        FontSize="12"
+                        VerticalAlignment="Center"
+                        Margin="0,0,8,0" />
+                    <TextBlock
+                        x:Name="txtRunningInfoDisplay"
+                        Foreground="#38BDF8"
+                        FontSize="11"
+                        VerticalAlignment="Center" />
                 </StackPanel>
             </DockPanel>
-        </materialDesign:ColorZone>
+        </Border>
 
         <tb:TaskbarIcon
             x:Name="tbNotify"

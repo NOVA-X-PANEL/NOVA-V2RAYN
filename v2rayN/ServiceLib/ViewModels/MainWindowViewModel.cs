@@ -92,6 +92,10 @@ public partial class MainWindowViewModel : MyReactiveObject
     {
         _config = AppManager.Instance.Config;
         BlIsWindows = Utils.IsWindows();
+        if (_config.UiItem.MainGirdOrientation == EGirdOrientation.Vertical)
+        {
+            _config.UiItem.MainGirdOrientation = EGirdOrientation.Tab;
+        }
         MainGirdOrientation = _config.UiItem.MainGirdOrientation;
 
         #region WhenAnyValue && ReactiveCommand

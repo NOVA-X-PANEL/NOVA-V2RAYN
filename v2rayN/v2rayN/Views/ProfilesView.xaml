@@ -21,6 +21,133 @@
     </UserControl.Resources>
     <Grid>
         <DockPanel>
+            <!-- HERO DASHBOARD DECK -->
+            <Border
+                DockPanel.Dock="Top"
+                Margin="8,6,8,8"
+                Background="#080D18"
+                BorderBrush="#182438"
+                BorderThickness="1"
+                CornerRadius="12"
+                Padding="16,12">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Big Circular Power Connect Button -->
+                    <Border
+                        Grid.Column="0"
+                        Width="56"
+                        Height="56"
+                        CornerRadius="28"
+                        Background="#0F1F38"
+                        BorderBrush="#00F0FF"
+                        BorderThickness="2"
+                        Margin="0,0,16,0"
+                        VerticalAlignment="Center">
+                        <materialDesign:PackIcon
+                            Kind="Power"
+                            Width="28"
+                            Height="28"
+                            Foreground="#00F0FF"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" />
+                    </Border>
+
+                    <!-- Core Active Telemetry -->
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,4">
+                            <Border
+                                Background="#052E16"
+                                BorderBrush="#00E676"
+                                BorderThickness="1"
+                                CornerRadius="4"
+                                Padding="6,2"
+                                Margin="0,0,8,0"
+                                VerticalAlignment="Center">
+                                <StackPanel Orientation="Horizontal">
+                                    <Border
+                                        Background="#00E676"
+                                        Width="6"
+                                        Height="6"
+                                        CornerRadius="3"
+                                        VerticalAlignment="Center"
+                                        Margin="0,0,6,0" />
+                                    <TextBlock
+                                        Text="TUNNEL READY"
+                                        Foreground="#00E676"
+                                        FontWeight="ExtraBold"
+                                        FontSize="10"
+                                        FontFamily="Consolas, Fira Code, monospace" />
+                                </StackPanel>
+                            </Border>
+                            <Border
+                                Background="#101A2C"
+                                BorderBrush="#00F0FF"
+                                BorderThickness="1"
+                                CornerRadius="4"
+                                Padding="6,2"
+                                Margin="0,0,8,0"
+                                VerticalAlignment="Center">
+                                <TextBlock
+                                    Text="XRAY CORE v26"
+                                    Foreground="#00F0FF"
+                                    FontWeight="Bold"
+                                    FontSize="10"
+                                    FontFamily="Consolas, Fira Code, monospace" />
+                            </Border>
+                            <Border
+                                Background="#1E1338"
+                                BorderBrush="#8B5CF6"
+                                BorderThickness="1"
+                                CornerRadius="4"
+                                Padding="6,2"
+                                VerticalAlignment="Center">
+                                <TextBlock
+                                    Text="SMART BYPASS IRAN"
+                                    Foreground="#C084FC"
+                                    FontWeight="Bold"
+                                    FontSize="10" />
+                            </Border>
+                        </StackPanel>
+                        <TextBlock
+                            Text="جهت اتصال به هر سرور روی آن دابل‌کلیک کنید یا دکمه Enter را بزنید • جهت انتخاب چندتایی Ctrl را نگه دارید"
+                            Foreground="#94A3B8"
+                            FontSize="11" />
+                    </StackPanel>
+
+                    <!-- Fast Action Buttons -->
+                    <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
+                        <Button
+                            x:Name="btnFastPingDeck"
+                            Background="#101D33"
+                            BorderBrush="#00F0FF"
+                            BorderThickness="1"
+                            Foreground="#00F0FF"
+                            FontWeight="Bold"
+                            FontSize="11"
+                            Height="36"
+                            Padding="12,0"
+                            Margin="0,0,8,0"
+                            Style="{StaticResource DefButton}">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon
+                                    Kind="LightningBolt"
+                                    Width="16"
+                                    Height="16"
+                                    Foreground="#00F0FF"
+                                    VerticalAlignment="Center"
+                                    Margin="0,0,6,0" />
+                                <TextBlock Text="تست پینگ همه (Real Ping)" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
             <WrapPanel Margin="{StaticResource Margin4}" DockPanel.Dock="Top">
                 <ListBox
                     x:Name="lstGroup"

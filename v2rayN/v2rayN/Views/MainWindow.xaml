@@ -77,7 +77,7 @@
                                 Margin="0,0,8,0"
                                 VerticalAlignment="Center">
                                 <TextBlock
-                                    Text="v7.25.8 • CYBER EDITION"
+                                    Text="v7.25.9 • NEXT-GEN EDITION"
                                     Foreground="#00F0FF"
                                     FontSize="10"
                                     FontWeight="Bold" />
@@ -521,46 +521,78 @@
                             materialDesign:NavigationRailAssist.ShowSelectionBackground="True"
                             Style="{StaticResource MaterialDesignNavigationRailTabControl}"
                             TabStripPlacement="Left">
-                            <TabItem x:Name="tabProfiles2">
+                            <TabItem x:Name="tabProfiles2" Padding="12,14">
                                 <TabItem.Header>
-                                    <StackPanel>
-                                        <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Server" />
-                                        <TextBlock
+                                    <StackPanel Width="68">
+                                        <materialDesign:PackIcon
                                             HorizontalAlignment="Center"
-                                            Style="{StaticResource ToolbarTextBlock}"
-                                            Text="{x:Static resx:ResUI.menuServers}" />
+                                            Kind="ViewDashboardOutline"
+                                            Width="24"
+                                            Height="24"
+                                            Foreground="#00F0FF" />
+                                        <TextBlock
+                                            Margin="0,4,0,0"
+                                            HorizontalAlignment="Center"
+                                            Foreground="#F1F5F9"
+                                            FontWeight="Bold"
+                                            FontSize="11"
+                                            Text="سرورها" />
                                     </StackPanel>
                                 </TabItem.Header>
                             </TabItem>
-                            <TabItem x:Name="tabMsgView2">
+                            <TabItem x:Name="tabMsgView2" Padding="12,14">
                                 <TabItem.Header>
-                                    <StackPanel>
-                                        <materialDesign:PackIcon HorizontalAlignment="Center" Kind="MessageTextOutline" />
-                                        <TextBlock
+                                    <StackPanel Width="68">
+                                        <materialDesign:PackIcon
                                             HorizontalAlignment="Center"
-                                            Style="{StaticResource ToolbarTextBlock}"
-                                            Text="{x:Static resx:ResUI.MsgInformationTitle}" />
+                                            Kind="ConsoleLine"
+                                            Width="24"
+                                            Height="24"
+                                            Foreground="#38BDF8" />
+                                        <TextBlock
+                                            Margin="0,4,0,0"
+                                            HorizontalAlignment="Center"
+                                            Foreground="#94A3B8"
+                                            FontWeight="Bold"
+                                            FontSize="11"
+                                            Text="کنسول لاگ" />
                                     </StackPanel>
                                 </TabItem.Header>
                             </TabItem>
-                            <TabItem x:Name="tabClashProxies2">
+                            <TabItem x:Name="tabClashProxies2" Padding="12,14">
                                 <TabItem.Header>
-                                    <StackPanel>
-                                        <materialDesign:PackIcon HorizontalAlignment="Center" Kind="ArrowDecisionOutline" />
-                                        <TextBlock
+                                    <StackPanel Width="68">
+                                        <materialDesign:PackIcon
                                             HorizontalAlignment="Center"
-                                            Style="{StaticResource ToolbarTextBlock}"
+                                            Kind="ArrowDecisionOutline"
+                                            Width="24"
+                                            Height="24"
+                                            Foreground="#A78BFA" />
+                                        <TextBlock
+                                            Margin="0,4,0,0"
+                                            HorizontalAlignment="Center"
+                                            Foreground="#94A3B8"
+                                            FontWeight="Bold"
+                                            FontSize="11"
                                             Text="{x:Static resx:ResUI.TbProxies}" />
                                     </StackPanel>
                                 </TabItem.Header>
                             </TabItem>
-                            <TabItem x:Name="tabClashConnections2">
+                            <TabItem x:Name="tabClashConnections2" Padding="12,14">
                                 <TabItem.Header>
-                                    <StackPanel>
-                                        <materialDesign:PackIcon HorizontalAlignment="Center" Kind="LanConnect" />
-                                        <TextBlock
+                                    <StackPanel Width="68">
+                                        <materialDesign:PackIcon
                                             HorizontalAlignment="Center"
-                                            Style="{StaticResource ToolbarTextBlock}"
+                                            Kind="LanConnect"
+                                            Width="24"
+                                            Height="24"
+                                            Foreground="#00E676" />
+                                        <TextBlock
+                                            Margin="0,4,0,0"
+                                            HorizontalAlignment="Center"
+                                            Foreground="#94A3B8"
+                                            FontWeight="Bold"
+                                            FontSize="11"
                                             Text="{x:Static resx:ResUI.TbConnections}" />
                                     </StackPanel>
                                 </TabItem.Header>
