@@ -106,8 +106,8 @@
         <tb:TaskbarIcon
             x:Name="tbNotify"
             IconSource="/Resources/v2rayN.ico"
-            NoLeftClickDelay="True"
-            ToolTipText="v2rayN">
+            LeftClickCommand="{Binding ShowHideWindowCmd}"
+            ToolTipText="NOVA-X Desktop">
             <tb:TaskbarIcon.ContextMenu>
                 <ContextMenu Style="{StaticResource DefContextMenu}">
                     <MenuItem
