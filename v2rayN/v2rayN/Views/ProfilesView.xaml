@@ -37,13 +37,13 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
 
-                    <!-- Big Circular Power Connect Button -->
+                    <!-- Big Circular Power Connect Indicator -->
                     <Border
                         Grid.Column="0"
                         Width="56"
                         Height="56"
                         CornerRadius="28"
-                        Background="#0F1F38"
+                        Background="#0B1728"
                         BorderBrush="#00F0FF"
                         BorderThickness="2"
                         Margin="0,0,16,0"
@@ -65,7 +65,7 @@
                                 BorderBrush="#00E676"
                                 BorderThickness="1"
                                 CornerRadius="4"
-                                Padding="6,2"
+                                Padding="7,2"
                                 Margin="0,0,8,0"
                                 VerticalAlignment="Center">
                                 <StackPanel Orientation="Horizontal">
@@ -89,7 +89,7 @@
                                 BorderBrush="#00F0FF"
                                 BorderThickness="1"
                                 CornerRadius="4"
-                                Padding="6,2"
+                                Padding="7,2"
                                 Margin="0,0,8,0"
                                 VerticalAlignment="Center">
                                 <TextBlock
@@ -104,7 +104,7 @@
                                 BorderBrush="#8B5CF6"
                                 BorderThickness="1"
                                 CornerRadius="4"
-                                Padding="6,2"
+                                Padding="7,2"
                                 VerticalAlignment="Center">
                                 <TextBlock
                                     Text="SMART BYPASS IRAN"
@@ -114,7 +114,7 @@
                             </Border>
                         </StackPanel>
                         <TextBlock
-                            Text="جهت اتصال به هر سرور روی آن دابل‌کلیک کنید یا دکمه Enter را بزنید • جهت انتخاب چندتایی Ctrl را نگه دارید"
+                            Text="⚡ جهت اتصال روی هر سرور دابل‌کلیک کنید یا دکمه Enter را بزنید • پینگ واقعی با Real Ping"
                             Foreground="#94A3B8"
                             FontSize="11" />
                     </StackPanel>
@@ -129,8 +129,8 @@
                             Foreground="#00F0FF"
                             FontWeight="Bold"
                             FontSize="11"
-                            Height="36"
-                            Padding="12,0"
+                            Height="38"
+                            Padding="14,0"
                             Margin="0,0,8,0"
                             Style="{StaticResource DefButton}">
                             <StackPanel Orientation="Horizontal">
@@ -148,92 +148,120 @@
                 </Grid>
             </Border>
 
-            <WrapPanel Margin="{StaticResource Margin4}" DockPanel.Dock="Top">
-                <ListBox
-                    x:Name="lstGroup"
-                    MaxHeight="200"
-                    AutomationProperties.Name="{x:Static resx:ResUI.menuSubscription}"
-                    FontSize="{DynamicResource StdFontSize}"
-                    ItemContainerStyle="{StaticResource MyChipListBoxItem}"
-                    Style="{StaticResource MaterialDesignChoiceChipPrimaryOutlineListBox}">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Remarks}" />
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+            <!-- SUB & SEARCH CONTROL DECK -->
+            <Border
+                DockPanel.Dock="Top"
+                Margin="8,0,8,8"
+                Background="#080C16"
+                BorderBrush="#182236"
+                BorderThickness="1"
+                CornerRadius="10"
+                Padding="8,6">
+                <DockPanel LastChildFill="True">
+                    <!-- Right-aligned action buttons and search -->
+                    <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBox
+                            x:Name="txtServerFilter"
+                            Width="200"
+                            Margin="0,0,8,0"
+                            VerticalContentAlignment="Center"
+                            materialDesign:HintAssist.Hint="{x:Static resx:ResUI.MsgServerTitle}"
+                            materialDesign:TextFieldAssist.HasClearButton="True"
+                            AutomationProperties.Name="{x:Static resx:ResUI.MsgServerTitle}"
+                            Style="{StaticResource DefTextBox}"
+                            ToolTip="{x:Static resx:ResUI.MsgServerTitle}" />
 
-                <Button
-                    x:Name="btnEditSub"
-                    Width="30"
-                    Height="30"
-                    Margin="{StaticResource MarginLeftRight4}"
-                    AutomationProperties.Name="{x:Static resx:ResUI.menuSubEdit}"
-                    Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
-                    ToolTip="{x:Static resx:ResUI.menuSubEdit}">
-                    <materialDesign:PackIcon VerticalAlignment="Center" Kind="Edit" />
-                </Button>
-                <Button
-                    x:Name="btnAddSub"
-                    Width="30"
-                    Height="30"
-                    Margin="{StaticResource MarginLeftRight4}"
-                    AutomationProperties.Name="{x:Static resx:ResUI.menuSubAdd}"
-                    Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
-                    ToolTip="{x:Static resx:ResUI.menuSubAdd}">
-                    <materialDesign:PackIcon VerticalAlignment="Center" Kind="Plus" />
-                </Button>
+                        <Button
+                            x:Name="btnFastRealPing"
+                            Width="32"
+                            Height="32"
+                            Margin="0,0,6,0"
+                            Background="#0E1726"
+                            BorderBrush="#00F0FF"
+                            Foreground="#00F0FF"
+                            Style="{StaticResource DefButton}"
+                            ToolTip="{x:Static resx:ResUI.menuFastRealPing}">
+                            <materialDesign:PackIcon VerticalAlignment="Center" Kind="LightningBolt" Width="16" Height="16" />
+                        </Button>
+                        <Button
+                            x:Name="menuMixedTestServer"
+                            Width="32"
+                            Height="32"
+                            Margin="0,0,6,0"
+                            Background="#0E1726"
+                            BorderBrush="#A78BFA"
+                            Foreground="#A78BFA"
+                            Style="{StaticResource DefButton}"
+                            ToolTip="{x:Static resx:ResUI.menuMixedTestServer}">
+                            <materialDesign:PackIcon VerticalAlignment="Center" Kind="Speedometer" Width="16" Height="16" />
+                        </Button>
+                        <Button
+                            x:Name="btnAutofitColumnWidth"
+                            Width="32"
+                            Height="32"
+                            Background="#0E1726"
+                            BorderBrush="#64748B"
+                            Foreground="#94A3B8"
+                            AutomationProperties.Name="{x:Static resx:ResUI.menuProfileAutofitColumnWidth}"
+                            Style="{StaticResource DefButton}"
+                            ToolTip="{x:Static resx:ResUI.menuProfileAutofitColumnWidth}">
+                            <materialDesign:PackIcon VerticalAlignment="Center" Kind="ArrowSplitVertical" Width="16" Height="16" />
+                        </Button>
+                    </StackPanel>
 
-                <TextBox
-                    x:Name="txtServerFilter"
-                    Width="200"
-                    Margin="{StaticResource MarginLeftRight4}"
-                    VerticalContentAlignment="Center"
-                    materialDesign:HintAssist.Hint="{x:Static resx:ResUI.MsgServerTitle}"
-                    materialDesign:TextFieldAssist.HasClearButton="True"
-                    AutomationProperties.Name="{x:Static resx:ResUI.MsgServerTitle}"
-                    Style="{StaticResource DefTextBox}"
-                    ToolTip="{x:Static resx:ResUI.MsgServerTitle}" />
+                    <!-- Left-aligned subscriptions -->
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <ListBox
+                            x:Name="lstGroup"
+                            MaxHeight="200"
+                            AutomationProperties.Name="{x:Static resx:ResUI.menuSubscription}"
+                            FontSize="{DynamicResource StdFontSize}"
+                            ItemContainerStyle="{StaticResource MyChipListBoxItem}"
+                            Style="{StaticResource MaterialDesignChoiceChipPrimaryOutlineListBox}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Remarks}" />
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
 
-                <Button
-                    x:Name="btnAutofitColumnWidth"
-                    Width="30"
-                    Height="30"
-                    Margin="{StaticResource MarginLeftRight4}"
-                    AutomationProperties.Name="{x:Static resx:ResUI.menuProfileAutofitColumnWidth}"
-                    Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
-                    ToolTip="{x:Static resx:ResUI.menuProfileAutofitColumnWidth}">
-                    <materialDesign:PackIcon VerticalAlignment="Center" Kind="ArrowSplitVertical" />
-                </Button>
+                        <Button
+                            x:Name="btnAddSub"
+                            Width="30"
+                            Height="30"
+                            Margin="4,0,4,0"
+                            AutomationProperties.Name="{x:Static resx:ResUI.menuSubAdd}"
+                            Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                            ToolTip="{x:Static resx:ResUI.menuSubAdd}">
+                            <materialDesign:PackIcon VerticalAlignment="Center" Kind="Plus" Width="16" Height="16" />
+                        </Button>
+                        <Button
+                            x:Name="btnEditSub"
+                            Width="30"
+                            Height="30"
+                            Margin="0,0,8,0"
+                            AutomationProperties.Name="{x:Static resx:ResUI.menuSubEdit}"
+                            Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                            ToolTip="{x:Static resx:ResUI.menuSubEdit}">
+                            <materialDesign:PackIcon VerticalAlignment="Center" Kind="Edit" Width="16" Height="16" />
+                        </Button>
+                    </StackPanel>
+                </DockPanel>
+            </Border>
 
-                <Button
-                    x:Name="btnFastRealPing"
-                    Width="30"
-                    Height="30"
-                    Margin="{StaticResource MarginLeftRight4}"
-                    Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
-                    ToolTip="{x:Static resx:ResUI.menuFastRealPing}">
-                    <materialDesign:PackIcon VerticalAlignment="Center" Kind="LightningBolt" />
-                </Button>
-                <Button
-                    x:Name="menuMixedTestServer"
-                    Width="30"
-                    Height="30"
-                    Margin="{StaticResource MarginLeftRight4}"
-                    Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
-                    ToolTip="{x:Static resx:ResUI.menuMixedTestServer}">
-                    <materialDesign:PackIcon VerticalAlignment="Center" Kind="Speedometer" />
-                </Button>
-            </WrapPanel>
             <DataGrid
                 x:Name="lstProfiles"
-                materialDesign:DataGridAssist.CellPadding="8,6"
+                materialDesign:DataGridAssist.CellPadding="10,8"
                 AutoGenerateColumns="False"
                 BorderThickness="0"
                 CanUserAddRows="False"
                 CanUserResizeRows="False"
                 CanUserSortColumns="False"
                 EnableRowVirtualization="True"
+                VirtualizingPanel.IsVirtualizing="True"
+                VirtualizingPanel.VirtualizationMode="Recycling"
+                VirtualizingPanel.ScrollUnit="Pixel"
+                ScrollViewer.CanContentScroll="True"
                 Focusable="True"
                 GridLinesVisibility="None"
                 HeadersVisibility="Column"
@@ -392,16 +420,17 @@
                     <Style BasedOn="{StaticResource MaterialDesignDataGridRow}" TargetType="DataGridRow">
                         <EventSetter Event="MouseDoubleClick" Handler="LstProfiles_MouseDoubleClick" />
                         <Setter Property="Margin" Value="0,1,0,1" />
-                        <Setter Property="MinHeight" Value="36" />
+                        <Setter Property="MinHeight" Value="42" />
+                        <Setter Property="Background" Value="#0A0E18" />
                         <Style.Triggers>
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter Property="Background" Value="#1A2D48" />
+                                <Setter Property="Background" Value="#14263E" />
                                 <Setter Property="Foreground" Value="#00F0FF" />
                                 <Setter Property="BorderBrush" Value="#00F0FF" />
-                                <Setter Property="BorderThickness" Value="1.5" />
+                                <Setter Property="BorderThickness" Value="3,0,0,0" />
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#131C2D" />
+                                <Setter Property="Background" Value="#10192A" />
                             </Trigger>
                         </Style.Triggers>
                     </Style>
@@ -410,18 +439,18 @@
                         <Setter Property="Background" Value="#090E18" />
                         <Setter Property="Foreground" Value="#00F0FF" />
                         <Setter Property="FontWeight" Value="Bold" />
-                        <Setter Property="Height" Value="34" />
+                        <Setter Property="Height" Value="36" />
                         <Setter Property="BorderBrush" Value="#1E293B" />
                         <Setter Property="BorderThickness" Value="0,0,0,1" />
                     </Style>
 
                     <Style BasedOn="{StaticResource MaterialDesignDataGridCell}" TargetType="DataGridCell">
                         <Setter Property="BorderThickness" Value="0" />
-                        <Setter Property="Padding" Value="8,6" />
+                        <Setter Property="Padding" Value="10,6" />
                         <Setter Property="VerticalAlignment" Value="Center" />
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding IsActive}" Value="True">
-                                <Setter Property="Background" Value="#14263D" />
+                                <Setter Property="Background" Value="#162D4A" />
                                 <Setter Property="Foreground" Value="#00F0FF" />
                                 <Setter Property="FontWeight" Value="SemiBold" />
                             </DataTrigger>
@@ -430,32 +459,32 @@
                 </DataGrid.Resources>
                 <DataGrid.Columns>
                     <base:MyDGTextColumn
-                        Width="80"
+                        Width="90"
                         Binding="{Binding ConfigType}"
                         ExName="ConfigType"
                         Header="{x:Static resx:ResUI.LvServiceType}" />
                     <base:MyDGTextColumn
-                        Width="150"
+                        Width="240"
                         Binding="{Binding Remarks}"
                         ExName="Remarks"
                         Header="{x:Static resx:ResUI.LvRemarks}" />
                     <base:MyDGTextColumn
-                        Width="120"
+                        Width="140"
                         Binding="{Binding Address}"
                         ExName="Address"
                         Header="{x:Static resx:ResUI.LvAddress}" />
                     <base:MyDGTextColumn
-                        Width="60"
+                        Width="65"
                         Binding="{Binding Port}"
                         ExName="Port"
                         Header="{x:Static resx:ResUI.LvPort}" />
                     <base:MyDGTextColumn
-                        Width="100"
+                        Width="85"
                         Binding="{Binding Network}"
                         ExName="Network"
                         Header="{x:Static resx:ResUI.LvTransportProtocol}" />
                     <base:MyDGTextColumn
-                        Width="100"
+                        Width="90"
                         Binding="{Binding StreamSecurity}"
                         ExName="StreamSecurity"
                         Header="{x:Static resx:ResUI.LvTLS}" />
@@ -465,7 +494,7 @@
                         ExName="SubRemarks"
                         Header="{x:Static resx:ResUI.LvSubscription}" />
                     <base:MyDGTextColumn
-                        Width="100"
+                        Width="110"
                         Binding="{Binding DelayVal}"
                         ExName="DelayVal"
                         Header="{x:Static resx:ResUI.LvTestDelay}"
@@ -473,6 +502,7 @@
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="HorizontalAlignment" Value="Right" />
+                                <Setter Property="FontWeight" Value="Bold" />
                                 <Setter Property="Foreground" Value="{Binding Delay, Converter={StaticResource DelayColorConverter}}" />
                             </Style>
                         </DataGridTextColumn.ElementStyle>
@@ -485,6 +515,7 @@
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="HorizontalAlignment" Value="Right" />
+                                <Setter Property="Foreground" Value="#00F0FF" />
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </base:MyDGTextColumn>
@@ -494,6 +525,7 @@
                         Width="100"
                         Binding="{Binding TodayUp}"
                         ExName="TodayUp"
+                        Visibility="Collapsed"
                         Header="{x:Static resx:ResUI.LvTodayUploadDataAmount}" />
 
                     <base:MyDGTextColumn
@@ -501,6 +533,7 @@
                         Width="100"
                         Binding="{Binding IpInfo}"
                         ExName="IpInfo"
+                        Visibility="Collapsed"
                         Header="{x:Static resx:ResUI.LvTestIpInfo}" />
 
                     <base:MyDGTextColumn
@@ -508,18 +541,21 @@
                         Width="100"
                         Binding="{Binding TodayDown}"
                         ExName="TodayDown"
+                        Visibility="Collapsed"
                         Header="{x:Static resx:ResUI.LvTodayDownloadDataAmount}" />
                     <base:MyDGTextColumn
                         x:Name="colTotalUp"
                         Width="100"
                         Binding="{Binding TotalUp}"
                         ExName="TotalUp"
+                        Visibility="Collapsed"
                         Header="{x:Static resx:ResUI.LvTotalUploadDataAmount}" />
                     <base:MyDGTextColumn
                         x:Name="colTotalDown"
                         Width="100"
                         Binding="{Binding TotalDown}"
                         ExName="TotalDown"
+                        Visibility="Collapsed"
                         Header="{x:Static resx:ResUI.LvTotalDownloadDataAmount}" />
                 </DataGrid.Columns>
             </DataGrid>

@@ -72,7 +72,7 @@ public class GUIItem
     public bool KeepOlderDedupl { get; set; }
     public int AutoUpdateInterval { get; set; }
     public int TrayMenuServersLimit { get; set; } = 20;
-    public bool EnableHWA { get; set; } = false;
+    public bool EnableHWA { get; set; } = true;
     public bool EnableLog { get; set; } = true;
     public string? RootCertProvider { get; set; }
 }

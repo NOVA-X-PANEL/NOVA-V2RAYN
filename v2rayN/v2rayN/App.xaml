@@ -137,6 +137,7 @@
                 BasedOn="{StaticResource MaterialDesignRaisedButton}"
                 TargetType="{x:Type ButtonBase}">
                 <Setter Property="FontSize" Value="{DynamicResource StdFontSize}" />
+                <Setter Property="materialDesign:RippleAssist.IsDisabled" Value="True" />
             </Style>
             <Style
                 x:Key="DefContextMenu"
@@ -144,6 +145,7 @@
                 TargetType="{x:Type ContextMenu}">
                 <Setter Property="FontSize" Value="{DynamicResource StdFontSize}" />
                 <Setter Property="FontFamily" Value="{x:Static conv:MaterialDesignFonts.MyFont}" />
+                <Setter Property="materialDesign:RippleAssist.IsDisabled" Value="True" />
             </Style>
 
             <Style
@@ -154,6 +156,7 @@
                 <Setter Property="FontFamily" Value="{x:Static conv:MaterialDesignFonts.MyFont}" />
                 <Setter Property="Background" Value="#0D111A" />
                 <Setter Property="Foreground" Value="#F1F5F9" />
+                <Setter Property="materialDesign:RippleAssist.IsDisabled" Value="True" />
             </Style>
 
             <Style
@@ -162,6 +165,7 @@
                 TargetType="{x:Type ComboBox}">
                 <Setter Property="FontSize" Value="{DynamicResource StdFontSize}" />
                 <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="materialDesign:RippleAssist.IsDisabled" Value="True" />
             </Style>
             <Style
                 x:Key="DefDataGrid"
@@ -170,12 +174,18 @@
                 <Setter Property="FontSize" Value="{DynamicResource StdFontSize}" />
                 <Setter Property="Background" Value="#080C14" />
                 <Setter Property="RowBackground" Value="#0C121E" />
-                <Setter Property="AlternatingRowBackground" Value="#101726" />
+                <Setter Property="AlternatingRowBackground" Value="#0E1624" />
                 <Setter Property="BorderBrush" Value="Transparent" />
                 <Setter Property="BorderThickness" Value="0" />
                 <Setter Property="GridLinesVisibility" Value="None" />
                 <Setter Property="HorizontalGridLinesBrush" Value="Transparent" />
                 <Setter Property="VerticalGridLinesBrush" Value="Transparent" />
+                <Setter Property="VirtualizingPanel.IsVirtualizing" Value="True" />
+                <Setter Property="VirtualizingPanel.VirtualizationMode" Value="Recycling" />
+                <Setter Property="VirtualizingPanel.ScrollUnit" Value="Pixel" />
+                <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
+                <Setter Property="EnableRowVirtualization" Value="True" />
+                <Setter Property="materialDesign:RippleAssist.IsDisabled" Value="True" />
             </Style>
             <Style
                 x:Key="DefTextBox"
@@ -211,6 +221,13 @@
                 <Setter Property="Background" Value="#121A2C" />
                 <Setter Property="BorderBrush" Value="#00F0FF" />
                 <Setter Property="Foreground" Value="#00F0FF" />
+                <Setter Property="materialDesign:RippleAssist.IsDisabled" Value="True" />
+            </Style>
+            <Style TargetType="{x:Type Button}">
+                <Setter Property="materialDesign:RippleAssist.IsDisabled" Value="True" />
+            </Style>
+            <Style TargetType="{x:Type ListBoxItem}">
+                <Setter Property="materialDesign:RippleAssist.IsDisabled" Value="True" />
             </Style>
             <Style
                 x:Key="MyOutlinedTextComboBox"

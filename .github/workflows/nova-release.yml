@@ -45,7 +45,7 @@ jobs:
         shell: bash
         working-directory: ./v2rayN
         run: |
-          dotnet publish ./v2rayN/v2rayN.csproj -c Release -r ${{ matrix.rid }} -p:SelfContained=true -p:EnableWindowsTargeting=true -o ../dist/v2rayN-windows-${{ matrix.target_bin }}
+          dotnet publish ./v2rayN/v2rayN.csproj -c Release -r ${{ matrix.rid }} -p:SelfContained=true -p:PublishReadyToRun=true -p:EnableWindowsTargeting=true -o ../dist/v2rayN-windows-${{ matrix.target_bin }}
           dotnet publish ./AmazTool/AmazTool.csproj -c Release -r ${{ matrix.rid }} -p:SelfContained=true -p:PublishTrimmed=true -p:EnableWindowsTargeting=true -o ../dist/v2rayN-windows-${{ matrix.target_bin }}
 
       - name: Download & Merge Core Binaries
